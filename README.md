@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# Mini Blog React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Descripción
 
-Currently, two official plugins are available:
+Mini-blog desarrollado con React + Vite + React Router. Permite visualizar un listado de elementos, ver su detalle y navegar entre páginas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎯 Nivel
 
-## React Compiler
+Proyecto desarrollado apuntando a nivel: **Senior (100 pts)**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tecnologías usadas
 
-## Expanding the ESLint configuration
+* React
+* Vite
+* React Router DOM v6
+* Axios
+* Context API
+* PropTypes
+* JSON Server (API simulada)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📂 Estructura
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* `/` → Home
+* `/items` → Listado
+* `/items/:id` → Detalle
+* `*` → Página 404
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## ⚙️ Instalación
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ▶️ Ejecutar proyecto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Frontend:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Backend (API fake):
+
+```bash
+npm run server
+```
+
+## 🔍 Funcionalidades
+
+* Navegación con React Router
+* Página 404
+* Búsqueda/filtro de elementos
+* Botón de elemento aleatorio
+* Estado global con Context API (favoritos / tema)
+* Componentes reutilizables
+* Uso de PropTypes
+
+## 📹 Demo
+
+Video demostrativo en carpeta `/demo`
+
+## ⚠️ Notas
+
+* No se utilizan etiquetas `<a>`, solo `<Link>`
+* Los datos no están hardcodeados en componentes
+* Proyecto listo para clonar y ejecutar
+
+## 👤 Autor
+
+Angel Sanabria
