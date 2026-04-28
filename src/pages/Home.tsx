@@ -14,7 +14,7 @@ export default function Home() {
         <img
           src={heroImg}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover object-top"
+          className="absolute inset-0 h-full w-full object-cover "
         />
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-db-900 via-db-900/70 to-transparent" />
@@ -33,7 +33,7 @@ export default function Home() {
           </p>
           <Link
             to="/items"
-            className="mt-10 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 px-8 py-3.5 font-body text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/30 hover:brightness-110"
+            className="mt-10 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 px-10 py-4 font-body text-base font-bold text-white ring-2 ring-orange-400/50 shadow-[0_0_30px_rgba(249,115,22,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(249,115,22,0.6)] hover:ring-orange-300/70"
           >
             Explorar articulos
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
