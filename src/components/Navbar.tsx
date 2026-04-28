@@ -17,9 +17,7 @@ export default function Navbar() {
           to="/"
           className="group flex items-center gap-2 font-display text-2xl tracking-wide dark:text-db-50 text-db-900 transition-all hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 hover:bg-clip-text hover:text-transparent"
         >
-          <svg className="h-7 w-7 text-orange-500 transition-transform group-hover:rotate-45" viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9" />
-          </svg>
+          <img src="/public/icon.png" alt="Saiyan Blog" className='h-10'/>
           Saiyan Blog
         </Link>
 
