@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
+import heroImg from '../assets/hero.webp';
 
 export default function Home() {
   const { items } = useAppContext();
@@ -8,21 +9,31 @@ export default function Home() {
   return (
     <main className="flex-1">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b dark:border-db-700/30 border-db-200 px-6 py-24 md:py-32">
-        <div className="absolute inset-0 bg-gradient-to-b from-orange-500/10 via-transparent to-transparent" />
-        <div className="relative mx-auto max-w-3xl text-center">
-          <p className="mb-4 font-body text-sm font-semibold uppercase tracking-[0.25em] text-accent">
+      <section className="relative isolate overflow-hidden border-b dark:border-db-700/30 border-db-200 min-h-[520px] md:min-h-[600px] flex items-center justify-center">
+        {/* Background image */}
+        <img
+          src={heroImg}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover object-top"
+        />
+        {/* Gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-db-900 via-db-900/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-db-900/60 via-transparent to-db-900/60" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-db-900 to-transparent" />
+
+        <div className="relative z-10 mx-auto max-w-3xl px-6 py-24 md:py-32 text-center">
+          <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.3em] text-orange-400 drop-shadow-lg">
             Bienvenido al universo Saiyan
           </p>
-          <h1 className="font-display text-5xl leading-tight tracking-wide dark:text-db-50 text-db-900 md:text-7xl">
+          <h1 className="font-display text-5xl leading-tight tracking-wide text-white drop-shadow-[0_2px_10px_rgba(249,115,22,0.3)] md:text-7xl lg:text-8xl">
             Saiyan Blog
           </h1>
-          <p className="mx-auto mt-6 max-w-lg font-body text-lg leading-relaxed dark:text-db-400 text-db-500">
+          <p className="mx-auto mt-6 max-w-lg font-body text-lg leading-relaxed text-db-200/90">
             El poder de los Saiyajin reunido en articulos epicos. Explora historias, batallas y transformaciones legendarias.
           </p>
           <Link
             to="/items"
-            className="mt-10 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 px-8 py-3.5 font-body text-sm font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25"
+            className="mt-10 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 px-8 py-3.5 font-body text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/30 hover:brightness-110"
           >
             Explorar articulos
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
