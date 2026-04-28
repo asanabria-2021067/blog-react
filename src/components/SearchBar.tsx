@@ -7,7 +7,7 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
   return (
     <div className="relative">
       <svg
-        className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-500"
+        className="absolute left-4 top-1/2 -translate-y-1/2 dark:text-db-500 text-db-400"
         xmlns="http://www.w3.org/2000/svg"
         width="18"
         height="18"
@@ -26,8 +26,8 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Search articles..."
-        className="w-full rounded-xl border border-ink-700/50 bg-ink-800/60 py-3 pl-12 pr-4 font-body text-sm text-ink-100 placeholder-ink-500 outline-none transition-all focus:border-accent/50 focus:ring-1 focus:ring-accent/30"
+        placeholder="Buscar articulos..."
+        className="w-full rounded-xl border dark:border-db-700/50 border-db-200 dark:bg-db-800/60 bg-white py-3 pl-12 pr-4 font-body text-sm dark:text-db-100 text-db-800 dark:placeholder-db-500 placeholder-db-400 outline-none transition-all focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/30"
       />
     </div>
   );

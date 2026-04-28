@@ -6,15 +6,21 @@ export default function Navbar() {
   const { theme, toggleTheme, favorites } = useAppContext();
 
   const links = [
-    { to: '/', label: 'Home' },
-    { to: '/items', label: 'Articles' },
+    { to: '/', label: 'Inicio' },
+    { to: '/items', label: 'Articulos' },
   ];
 
   return (
-    <nav className="sticky top-0 z-40 border-b border-ink-700/50 bg-ink-950/80 backdrop-blur-md">
+    <nav className="sticky top-0 z-40 border-b dark:border-db-700/50 border-db-200 dark:bg-db-950/80 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link to="/" className="font-display text-xl font-semibold tracking-tight text-ink-50 transition-colors hover:text-accent">
-          The Ink Press
+        <Link
+          to="/"
+          className="group flex items-center gap-2 font-display text-2xl tracking-wide dark:text-db-50 text-db-900 transition-all hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 hover:bg-clip-text hover:text-transparent"
+        >
+          <svg className="h-7 w-7 text-orange-500 transition-transform group-hover:rotate-45" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9" />
+          </svg>
+          Saiyan Blog
         </Link>
 
         <div className="flex items-center gap-6">
@@ -25,7 +31,7 @@ export default function Navbar() {
               className={`font-body text-sm font-medium tracking-wide transition-colors ${
                 pathname === to
                   ? 'text-accent'
-                  : 'text-ink-400 hover:text-ink-100'
+                  : 'dark:text-db-400 text-db-500 dark:hover:text-db-100 hover:text-db-900'
               }`}
             >
               {label}
@@ -40,8 +46,8 @@ export default function Navbar() {
 
           <button
             onClick={toggleTheme}
-            className="rounded-lg p-2 text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-100"
-            aria-label="Toggle theme"
+            className="rounded-lg p-2 dark:text-db-400 text-db-500 transition-colors dark:hover:bg-db-800 hover:bg-db-100 dark:hover:text-db-100 hover:text-db-900"
+            aria-label="Cambiar tema"
           >
             {theme === 'dark' ? (
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

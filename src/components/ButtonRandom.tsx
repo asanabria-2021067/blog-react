@@ -15,7 +15,7 @@ export default function ButtonRandom() {
     <button
       onClick={handleRandom}
       disabled={items.length === 0}
-      className="inline-flex items-center gap-2 rounded-xl border border-accent/30 bg-accent/10 px-5 py-3 font-body text-sm font-semibold text-accent transition-all hover:bg-accent/20 hover:border-accent/50 disabled:opacity-40 disabled:cursor-not-allowed"
+      className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 px-5 py-3 font-body text-sm font-semibold text-white transition-all hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ export default function ButtonRandom() {
         <line x1="15" y1="15" x2="21" y2="21" />
         <line x1="4" y1="4" x2="9" y2="9" />
       </svg>
-      Random Article
+      Articulo aleatorio
     </button>
   );
 }

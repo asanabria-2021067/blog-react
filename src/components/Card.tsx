@@ -11,7 +11,7 @@ export default function Card({ item }: CardProps) {
   const fav = isFavorite(item.id);
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-ink-700/40 bg-ink-800/50 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-1">
+    <article className="group relative flex flex-col overflow-hidden rounded-2xl border dark:border-db-700/40 border-db-200 dark:bg-db-800/50 bg-white transition-all duration-300 hover:border-orange-500/30 hover:shadow-xl hover:shadow-orange-500/10 hover:-translate-y-1">
       {item.image && (
         <div className="aspect-[16/10] overflow-hidden">
           <img
@@ -31,28 +31,28 @@ export default function Card({ item }: CardProps) {
         )}
 
         <Link to={`/items/${item.id}`} className="group/link">
-          <h3 className="font-display text-lg font-semibold leading-snug text-ink-50 transition-colors group-hover/link:text-accent">
+          <h3 className="font-display text-lg font-semibold leading-snug dark:text-db-50 text-db-900 transition-colors group-hover/link:text-accent">
             {item.title}
           </h3>
         </Link>
 
-        <p className="line-clamp-2 text-sm leading-relaxed text-ink-400">
+        <p className="line-clamp-2 text-sm leading-relaxed dark:text-db-400 text-db-500">
           {item.description}
         </p>
 
         <div className="mt-auto flex items-center justify-between pt-3">
           {item.date && (
-            <time className="text-xs text-ink-500">{item.date}</time>
+            <time className="text-xs dark:text-db-500 text-db-400">{item.date}</time>
           )}
 
           <button
             onClick={() => toggleFavorite(item.id)}
             className={`ml-auto rounded-lg p-1.5 transition-colors ${
               fav
-                ? 'text-accent hover:text-accent-dark'
-                : 'text-ink-500 hover:text-accent'
+                ? 'text-orange-500 hover:text-orange-600'
+                : 'dark:text-db-500 text-db-400 hover:text-orange-500'
             }`}
-            aria-label={fav ? 'Remove from favorites' : 'Add to favorites'}
+            aria-label={fav ? 'Quitar de favoritos' : 'Agregar a favoritos'}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ export default function Card({ item }: CardProps) {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              <polygon points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9" />
             </svg>
           </button>
         </div>
