@@ -2,7 +2,7 @@ import axios from 'axios';
 import type { Item } from '../types/item';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'https://backend-blog-mu.vercel.app',
 });
 
 export async function fetchItems(): Promise<Item[]> {
