@@ -6,7 +6,7 @@ Mini-blog tematico de Dragon Ball Z desarrollado con **React + Vite + React Rout
 
 ## Nivel
 
-Proyecto desarrollado apuntando a nivel: **Mid (85 pts)**
+Proyecto desarrollado apuntando a nivel: **Senior**
 
 ## Tecnologias usadas
 
@@ -17,6 +17,8 @@ Proyecto desarrollado apuntando a nivel: **Mid (85 pts)**
 - **Axios** - Cliente HTTP para consumo de API
 - **Tailwind CSS** - Estilos utilitarios
 - **Context API** - Estado global (favoritos, tema oscuro/claro)
+- **PropTypes** - Validacion de props en runtime
+- **prop-types** - Libreria de validacion de tipos en runtime
 
 ## Backend
 
@@ -96,22 +98,64 @@ El proyecto se abrira en `http://localhost:5173`. No es necesario levantar un ba
 - **Skeleton loaders**: Indicadores de carga mientras se obtienen los datos
 - **Diseno responsivo**: Grids adaptativos para movil, tablet y escritorio
 
+### Funcionalidades Senior
+
+- **Estado global con Context API**: Contexto de tema (claro/oscuro) con toggle en Navbar, persistido en localStorage. Tambien maneja favoritos globalmente.
+- **PropTypes en runtime**: Validacion de props con `prop-types` en los componentes `Card`, `SearchBar` y `PriceTag`, ademas de las interfaces TypeScript.
+- **API REST externa**: Datos consumidos desde backend hosteado en Vercel (`https://backend-blog-mu.vercel.app`). No hay datos hardcodeados en componentes.
+- **Descuentos automaticos**: 10% de descuento si el articulo tiene mas de 1 ano de antiguedad o pertenece a una categoria especial (Transformaciones, Villanos). Se muestra precio original tachado y precio final.
+
+## Componentes reutilizables y sus Props
+
+### Card
+
+Muestra un articulo como tarjeta con imagen, categoria, titulo, descripcion, precio y favorito.
+
+| Prop | Tipo | Requerido | Descripcion |
+|------|------|-----------|-------------|
+| `item` | `Item` | Si | Objeto del articulo a mostrar |
+
+### SearchBar
+
+Input de busqueda con icono de lupa.
+
+| Prop | Tipo | Requerido | Descripcion |
+|------|------|-----------|-------------|
+| `value` | `string` | Si | Valor actual del input |
+| `onChange` | `(value: string) => void` | Si | Callback al cambiar el texto |
+
+### PriceTag
+
+Muestra precio con o sin descuento. Reutilizado en Card y ItemDetail.
+
+| Prop | Tipo | Requerido | Descripcion |
+|------|------|-----------|-------------|
+| `discount` | `DiscountInfo` | Si | Objeto con info de descuento |
+| `size` | `'sm' \| 'lg'` | No | Tamano del texto (default: `sm`) |
+
+### ButtonRandom
+
+Boton que navega a un articulo aleatorio. No recibe props, usa `useAppContext()` y `useNavigate()`.
+
 ## Estructura del proyecto
 
 ```
 src/
   api/          # Cliente Axios y funciones de consumo de API
   assets/       # Imagenes y recursos estaticos
-  components/   # Componentes reutilizables (Navbar, Card, SearchBar, ButtonRandom)
+  components/   # Componentes reutilizables (Navbar, Card, SearchBar, ButtonRandom, PriceTag)
   context/      # Context API - Estado global de la aplicacion
   pages/        # Paginas principales (Home, Items, ItemDetail, NotFound)
   router/       # Configuracion de rutas con React Router
-  types/        # Interfaces de TypeScript
+  types/        # Interfaces de TypeScript (Item, DiscountInfo)
+  utils/        # Utilidades (discount.ts - logica de descuentos)
 ```
 
 ## Demo
 
-Video demostrativo disponible en la carpeta `/demo` mostrando las 3 rutas funcionando.
+Video demostrativo disponible en la carpeta `/demo` mostrando las 3 rutas funcionando, el toggle de tema, filtro de busqueda, articulo aleatorio y descuentos automaticos.
+
+> **Nota**: Si el archivo de video aun no existe, se debe grabar mostrando: navegacion por las 3 rutas (`/`, `/items`, `/items/:id`), la pagina 404, el filtro de busqueda, el boton aleatorio, el toggle de tema oscuro/claro, y los descuentos automaticos.
 
 ## Notas importantes
 
