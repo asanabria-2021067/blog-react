@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import type { Item } from '../types/item';
 import { fetchItemById } from '../api/api';
 import { useAppContext } from '../context/AppContext';
+import { getDiscount } from '../utils/discount';
+import PriceTag from '../components/PriceTag';
 
 function DetailSkeleton() {
   return (
@@ -67,6 +69,7 @@ export default function ItemDetail() {
   }
 
   const fav = isFavorite(item.id);
+  const discount = getDiscount(item);
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-10 md:py-16">
@@ -103,6 +106,11 @@ export default function ItemDetail() {
         <p className="mt-4 text-lg leading-relaxed dark:text-db-300 text-db-600">
           {item.description}
         </p>
+
+        {/* Price */}
+        <div className="mt-4">
+          <PriceTag discount={discount} size="lg" />
+        </div>
 
         {/* Image */}
         {item.image && (
