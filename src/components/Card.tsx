@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import type { Item } from '../types/item';
 import { useAppContext } from '../context/AppContext';
+import { getDiscount } from '../utils/discount';
+import PriceTag from './PriceTag';
 
 interface CardProps {
   item: Item;
@@ -9,6 +12,7 @@ interface CardProps {
 export default function Card({ item }: CardProps) {
   const { toggleFavorite, isFavorite } = useAppContext();
   const fav = isFavorite(item.id);
+  const discount = getDiscount(item);
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl border dark:border-db-700/40 border-db-200 dark:bg-db-800/50 bg-white transition-all duration-300 hover:border-orange-500/30 hover:shadow-xl hover:shadow-orange-500/10 hover:-translate-y-1">
@@ -40,9 +44,14 @@ export default function Card({ item }: CardProps) {
           {item.description}
         </p>
 
+        <PriceTag discount={discount} size="sm" />
+
         <div className="mt-auto flex items-center justify-between pt-3">
           {item.date && (
             <time className="text-xs dark:text-db-500 text-db-400">{item.date}</time>
+          )}
+          {!item.date && item.created_at && (
+            <time className="text-xs dark:text-db-500 text-db-400">{new Date(item.created_at).toLocaleDateString()}</time>
           )}
 
           <button
@@ -73,3 +82,18 @@ export default function Card({ item }: CardProps) {
     </article>
   );
 }
+
+Card.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    body: PropTypes.string,
+    image: PropTypes.string,
+    category: PropTypes.string,
+    date: PropTypes.string,
+    created_at: PropTypes.string,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number,
+  }).isRequired,
+};
