@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
@@ -32,3 +34,8 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
     </div>
   );
 }
+
+SearchBar.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
