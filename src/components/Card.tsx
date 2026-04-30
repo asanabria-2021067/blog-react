@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import type { Item } from '../types/item';
 import { useAppContext } from '../context/AppContext';
-import { getDiscount } from '../utils/discount';
-import PriceTag from './PriceTag';
 
 interface CardProps {
   item: Item;
@@ -12,7 +10,6 @@ interface CardProps {
 export default function Card({ item }: CardProps) {
   const { toggleFavorite, isFavorite } = useAppContext();
   const fav = isFavorite(item.id);
-  const discount = getDiscount(item);
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl border dark:border-db-700/40 border-db-200 dark:bg-db-800/50 bg-white transition-all duration-300 hover:border-orange-500/30 hover:shadow-xl hover:shadow-orange-500/10 hover:-translate-y-1">
@@ -43,8 +40,6 @@ export default function Card({ item }: CardProps) {
         <p className="line-clamp-2 text-sm leading-relaxed dark:text-db-400 text-db-500">
           {item.description}
         </p>
-
-        <PriceTag discount={discount} size="sm" />
 
         <div className="mt-auto flex items-center justify-between pt-3">
           {item.date && (
@@ -93,7 +88,6 @@ Card.propTypes = {
     category: PropTypes.string,
     date: PropTypes.string,
     created_at: PropTypes.string,
-    price: PropTypes.number.isRequired,
     rating: PropTypes.number,
   }).isRequired,
 };
