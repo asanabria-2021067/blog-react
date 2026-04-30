@@ -28,8 +28,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Bangers', 'cursive'],
-        body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        body: ['Inter', '"DM Sans"', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         float: {

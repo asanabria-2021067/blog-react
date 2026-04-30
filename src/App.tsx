@@ -9,7 +9,9 @@ export default function App() {
       <AppProvider>
         <div className="grain" />
         <Navbar />
-        <AppRouter />
+        <div className="pt-[72px]">
+          <AppRouter />
+        </div>
       </AppProvider>
     </BrowserRouter>
   );
