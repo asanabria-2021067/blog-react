@@ -1,4 +1,4 @@
-# Saiyan Blog - Mini Blog React
+# Z-FEED - Mini Blog React
 
 ## Descripcion
 
@@ -18,11 +18,10 @@ Proyecto desarrollado apuntando a nivel: **Senior**
 - **Tailwind CSS** - Estilos utilitarios
 - **Context API** - Estado global (favoritos, tema oscuro/claro)
 - **PropTypes** - Validacion de props en runtime
-- **prop-types** - Libreria de validacion de tipos en runtime
 
 ## Backend
 
-El backend esta hosteado en **Vercel**, tal como fue recomendado por Erick. La API REST sirve los datos de los articulos y se encuentra disponible en:
+El backend esta hosteado en **Vercel**. La API REST sirve los datos de los articulos y se encuentra disponible en:
 
 ```
 https://backend-blog-mu.vercel.app
@@ -58,7 +57,7 @@ El backend fue desplegado en Vercel para evitar depender de un servidor local (`
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/blog-react.git
+git clone https://github.com/asanabria-2021067/blog-react.git
 cd blog-react
 ```
 
@@ -101,15 +100,14 @@ El proyecto se abrira en `http://localhost:5173`. No es necesario levantar un ba
 ### Funcionalidades Senior
 
 - **Estado global con Context API**: Contexto de tema (claro/oscuro) con toggle en Navbar, persistido en localStorage. Tambien maneja favoritos globalmente.
-- **PropTypes en runtime**: Validacion de props con `prop-types` en los componentes `Card`, `SearchBar` y `PriceTag`, ademas de las interfaces TypeScript.
+- **PropTypes en runtime**: Validacion de props con `prop-types` en los componentes `Card` y `SearchBar`, ademas de las interfaces TypeScript.
 - **API REST externa**: Datos consumidos desde backend hosteado en Vercel (`https://backend-blog-mu.vercel.app`). No hay datos hardcodeados en componentes.
-- **Descuentos automaticos**: 10% de descuento si el articulo tiene mas de 1 ano de antiguedad o pertenece a una categoria especial (Transformaciones, Villanos). Se muestra precio original tachado y precio final.
 
 ## Componentes reutilizables y sus Props
 
 ### Card
 
-Muestra un articulo como tarjeta con imagen, categoria, titulo, descripcion, precio y favorito.
+Muestra un articulo como tarjeta con imagen, categoria, titulo, descripcion y favorito.
 
 | Prop | Tipo | Requerido | Descripcion |
 |------|------|-----------|-------------|
@@ -124,15 +122,6 @@ Input de busqueda con icono de lupa.
 | `value` | `string` | Si | Valor actual del input |
 | `onChange` | `(value: string) => void` | Si | Callback al cambiar el texto |
 
-### PriceTag
-
-Muestra precio con o sin descuento. Reutilizado en Card y ItemDetail.
-
-| Prop | Tipo | Requerido | Descripcion |
-|------|------|-----------|-------------|
-| `discount` | `DiscountInfo` | Si | Objeto con info de descuento |
-| `size` | `'sm' \| 'lg'` | No | Tamano del texto (default: `sm`) |
-
 ### ButtonRandom
 
 Boton que navega a un articulo aleatorio. No recibe props, usa `useAppContext()` y `useNavigate()`.
@@ -143,19 +132,16 @@ Boton que navega a un articulo aleatorio. No recibe props, usa `useAppContext()`
 src/
   api/          # Cliente Axios y funciones de consumo de API
   assets/       # Imagenes y recursos estaticos
-  components/   # Componentes reutilizables (Navbar, Card, SearchBar, ButtonRandom, PriceTag)
+  components/   # Componentes reutilizables (Navbar, Card, SearchBar, ButtonRandom)
   context/      # Context API - Estado global de la aplicacion
   pages/        # Paginas principales (Home, Items, ItemDetail, NotFound)
   router/       # Configuracion de rutas con React Router
-  types/        # Interfaces de TypeScript (Item, DiscountInfo)
-  utils/        # Utilidades (discount.ts - logica de descuentos)
+  types/        # Interfaces de TypeScript (Item)
 ```
 
 ## Demo
 
-Video demostrativo disponible en la carpeta `/demo` mostrando las 3 rutas funcionando, el toggle de tema, filtro de busqueda, articulo aleatorio y descuentos automaticos.
-
-> **Nota**: Si el archivo de video aun no existe, se debe grabar mostrando: navegacion por las 3 rutas (`/`, `/items`, `/items/:id`), la pagina 404, el filtro de busqueda, el boton aleatorio, el toggle de tema oscuro/claro, y los descuentos automaticos.
+Video demostrativo disponible en la carpeta `/demo` mostrando las 3 rutas funcionando.
 
 ## Notas importantes
 
