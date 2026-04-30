@@ -21,11 +21,9 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center gap-6">
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-db-800 border border-db-700 text-orange-400 text-xs font-semibold uppercase tracking-[0.15em]">
-            Transmision Entrante
-          </span>
 
-          <h1 className="font-display text-[56px] md:text-[80px] leading-tight text-white tracking-tighter uppercase font-black">
+
+          <h1 className="font-display text-[120px] md:text-[80px] leading-tight text-white tracking-tighter uppercase font-black">
             The Ultimate <br />
             <span className="text-orange-500">Z-Signal</span>
           </h1>
@@ -44,81 +42,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 animate-bounce">
-          <span className="text-xs font-semibold uppercase tracking-[0.15em]">Scroll para explorar</span>
+        <div className="absolute bottom-8 left-1/8 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 animate-bounce">
+          <span className="text-xs font-semibold uppercase tracking-[0.50em]">Scroll para explorar</span>
           <span className="material-symbols-outlined">expand_more</span>
         </div>
       </section>
 
-      {/* Featured Post */}
-      {featured && (
-        <section className="max-w-7xl mx-auto px-8 py-24">
-          <div className="flex items-center justify-between mb-12">
-            <h2 className="font-display text-3xl text-white font-bold">Objetivo Prioritario</h2>
-          </div>
-
-          <article className="group relative rounded-xl overflow-hidden bg-[#1a1c1e] border border-[#333537] transition-all duration-300 hover:border-orange-600/40 hover:shadow-[0_0_40px_-10px_rgba(255,102,0,0.15)] flex flex-col lg:flex-row h-auto lg:h-[500px]">
-            {featured.image && (
-              <div className="lg:w-2/3 h-[300px] lg:h-full relative overflow-hidden">
-                <img
-                  src={featured.image}
-                  alt={featured.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1c1e] to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#1a1c1e] opacity-90 lg:opacity-100" />
-              </div>
-            )}
-
-            <div className={`${featured.image ? 'lg:w-1/3' : 'w-full'} p-8 flex flex-col justify-center relative z-10`}>
-              <div className="flex justify-between items-start mb-6">
-                {featured.category && (
-                  <span className="text-xs font-semibold uppercase tracking-[0.15em] text-orange-400 px-2 py-1 bg-[#333537] rounded">
-                    {featured.category}
-                  </span>
-                )}
-                <button
-                  onClick={() => toggleFavorite(featured.id)}
-                  aria-label="Favorito"
-                  className="text-gray-500 hover:text-orange-400 transition-colors"
-                >
-                  <span
-                    className="material-symbols-outlined text-3xl"
-                    style={{ fontVariationSettings: isFavorite(featured.id) ? "'FILL' 1" : "'FILL' 0" }}
-                  >
-                    star
-                  </span>
-                </button>
-              </div>
-
-              <Link to={`/items/${featured.id}`}>
-                <h3 className="font-display text-2xl text-white mb-4 group-hover:text-orange-400 transition-colors font-semibold">
-                  {featured.title}
-                </h3>
-              </Link>
-
-              <p className="font-body text-base text-gray-400 mb-8 line-clamp-4 leading-relaxed">
-                {featured.description}
-              </p>
-
-              <div className="flex items-center gap-3 mt-auto pt-4 border-t border-[#333537]">
-                <div className="flex flex-col">
-                  {featured.date && (
-                    <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-500">
-                      {featured.date}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-          </article>
-        </section>
-      )}
-
+     
       {/* Latest Transmissions */}
       {latest.length > 0 && (
-        <section className="max-w-7xl mx-auto px-8 pb-24">
+        <section className="max-w-7xl mx-auto px-8 py-20 pb-24">
           <div className="flex items-center justify-between mb-12">
-            <h2 className="font-display text-3xl text-white font-bold">Ultimas Transmisiones</h2>
+            <h2 className="font-display text-3xl text-white font-bold">Ultimos Artículos</h2>
             <Link
               to="/items"
               className="text-sm font-medium text-gray-500 hover:text-orange-400 transition-colors"
@@ -194,31 +129,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* Community / Newsletter Section */}
-      <section className="max-w-4xl mx-auto px-8 mb-12">
-        <div className="bg-[#1e2022] rounded-xl p-12 text-center border border-[#333537] relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-orange-600/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-
-          <h2 className="font-display text-3xl text-white mb-4 font-bold">Unite a la Resistencia</h2>
-          <p className="font-body text-base text-gray-400 mb-8 max-w-lg mx-auto leading-relaxed">
-            Suscribite a Z-Signal para recibir transmisiones de alta prioridad, analisis estrategicos y alertas de la comunidad directo a tu scouter.
-          </p>
-
-          <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto relative z-10" onSubmit={(e) => e.preventDefault()}>
-            <input
-              className="flex-grow bg-[#0c0e11] border border-[#333537] text-white rounded px-4 py-3 focus:outline-none focus:border-orange-600 focus:ring-1 focus:ring-orange-600 transition-colors font-body"
-              placeholder="Ingresa tu email"
-              type="email"
-            />
-            <button
-              type="button"
-              className="bg-orange-600 text-black font-body font-bold px-6 py-3 rounded hover:bg-orange-500 transition-colors whitespace-nowrap"
-            >
-              Suscribirme
-            </button>
-          </form>
-        </div>
-      </section>
+      
 
       {/* Footer */}
       <footer className="w-full py-12 bg-[#0D0D0D] border-t border-[#1A1A1E] mt-auto">
