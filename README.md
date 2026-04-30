@@ -58,7 +58,7 @@ El backend fue desplegado en Vercel para evitar depender de un servidor local (`
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/blog-react.git
+git clone https://github.com/asanabria-2021067/blog-react.git
 cd blog-react
 ```
 
